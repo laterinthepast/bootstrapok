@@ -1,22 +1,41 @@
-// Importing JavaScript
-//
-// You have two choices for including Bootstrap's JS files—the whole thing,
-// or just the bits that you need.
 
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.navbarr');
+const overlay = document.querySelector('.overlay');
+const navLinks = document.querySelector('.nav-list');
+const hamOne = document.querySelector('.ham-one');
+const hamTwo = document.querySelector('.ham-two');
+const hamThree = document.querySelector('.ham-three');
 
-// Option 1
-//
-// Import Bootstrap's bundle (all of Bootstrap's JS + Popper.js dependency)
+overlay.addEventListener('click', () => {
+    hamOne.classList.remove('active-right');
+    hamThree.classList.remove('active-left');
+    hamTwo.style.display = 'block';
+    overlay.style.display = 'none';
+    navLinks.style.display = 'none';
+    nav.classList.remove('nav-links');
+    hamburger.classList.remove('is-active');
+}
+);
+hamburger.addEventListener('click', () => {
+    if (hamburger.classList.contains('is-active')) {
+        hamOne.classList.remove('active-right');
+        hamThree.classList.remove('active-left');
+        hamTwo.style.display = 'block';
+        overlay.style.display = 'none';
+        navLinks.style.display = 'none';
+        nav.classList.remove('nav-links');
+        hamburger.classList.remove('is-active');
+    }
+    else {
+        hamOne.classList.add('active-right');
+        hamThree.classList.add('active-left');
+        hamTwo.style.display = 'none';
+        overlay.style.display = 'inline-block';
+        navLinks.style.display = 'block';
+        nav.classList.toggle('nav-links');
+        hamburger.classList.toggle('is-active');
+    }
+}
+);
 
-// import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
-
-
-// Option 2
-//
-// Import just what we need
-
-// If you're importing tooltips or popovers, be sure to include our Popper.js dependency
-// import "../../node_modules/popper.js/dist/popper.min.js";
-
-import "../../node_modules/bootstrap/js/dist/util.js";
-import "../../node_modules/bootstrap/js/dist/modal.js";

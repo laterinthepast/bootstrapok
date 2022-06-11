@@ -1,90 +1,125 @@
-// Override Bootstrap's Sass default variables
-//
-// Nearly all variables in Bootstrap are written with the `!default` flag.
-// This allows you to override the default values of those variables before
-// you import Bootstrap's source Sass files.
-//
-// Overriding the default variable values is the best way to customize your
-// CSS without writing _new_ styles. For example, change you can either change
-// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
-// `body { color: red; }`.
-
-
-//
-// Bring in Bootstrap
-//
-
-// Option 1
-//
-// Import all of Bootstrap's CSS
-
-// @import "bootstrap/scss/bootstrap";
-
-// Option 2
-//
-// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
-
-// Toggle global options
+@import url("https://fonts.googleapis.com/css2?family=Joan&family=Pacifico&family=Shadows+Into+Light&family=Special+Elite&display=swap");
 $enable-gradients: true;
 $enable-shadows: true;
 
 // Customize some defaults
 $body-color: #333;
 $body-bg: #fff;
-$border-radius: .4rem;
+$border-radius: 0.4rem;
 $success: #7952b3;
 
-@import "bootstrap/scss/functions"; // Required
-@import "bootstrap/scss/variables"; // Required
-@import "bootstrap/scss/mixins"; // Required
-
-@import "bootstrap/scss/root"; // Required
-@import "bootstrap/scss/reboot"; // Required
-@import "bootstrap/scss/type";
-// @import "bootstrap/scss/images";
-// @import "bootstrap/scss/code";
-@import "bootstrap/scss/grid";
-// @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";
-@import "bootstrap/scss/buttons";
-@import "bootstrap/scss/transitions";
-// @import "bootstrap/scss/dropdown";
-// @import "bootstrap/scss/button-group";
-// @import "bootstrap/scss/input-group"; // Requires forms
-// @import "bootstrap/scss/custom-forms";
-// @import "bootstrap/scss/nav";
-// @import "bootstrap/scss/navbar"; // Requires nav
-// @import "bootstrap/scss/card";
-// @import "bootstrap/scss/breadcrumb";
-// @import "bootstrap/scss/pagination";
-// @import "bootstrap/scss/badge";
-// @import "bootstrap/scss/jumbotron";
-// @import "bootstrap/scss/alert";
-// @import "bootstrap/scss/progress";
-// @import "bootstrap/scss/media";
-// @import "bootstrap/scss/list-group";
-@import "bootstrap/scss/close";
-// @import "bootstrap/scss/toasts";
-@import "bootstrap/scss/modal"; // Requires transitions
-// @import "bootstrap/scss/tooltip";
-// @import "bootstrap/scss/popover";
-// @import "bootstrap/scss/carousel";
-// @import "bootstrap/scss/spinners";
-@import "bootstrap/scss/utilities";
-// @import "bootstrap/scss/print";
-
-
-//
-// Custom styles
-//
-
-@import "icon-list";
-
 body {
-  padding: 3rem 1.5rem;
+  font-family: 'Special Elite', cursive;
 }
 
-// Style Bootstrap icons
-.bi {
-  fill: currentColor;
+.landing {
+  background-image: url("/photos/3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  z-index: 0;
+}
+.hamburger {
+  width: 50px;
+}
+.active-right {
+  transform: rotate(45deg);
+  position: relative;
+  top: 15px;
+  transition: 0.4s all ease-in-out;
+  z-index: 999;
+}
+.active-left {
+  transform: rotate(-45deg);
+  transition: 0.4s all ease-in-out;
+  z-index: 999;
+}
+.ham-two {
+  display: block;
+  transition: 0.4s all ease-in-out;
+}
+/*   animation: rotateLeft 0.5s ease-in-out;
+  animation-iteration-count: 1;
+ */
+
+.ham-span {
+  border: 1px solid #333;
+  background-color: #fff;
+}
+
+.title {
+  position: fixed;
+  left: 10%;
+  bottom: 35%;
+  h1 {
+    font-size: 80px;
+    color: #fff;
+    font-weight: 200;
+    @media(max-width: 768px) {
+      font-size: 50px;
+    }
+  }
+}
+
+.nav-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  display: none;
+
+  .nav-item {
+    list-style: none;
+  }
+  .nav-link {
+    text-decoration: none;
+    color: #fff;
+    animation: fadeIn 1s;
+  }
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.521);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  animation: fadeIn 1s;
+}
+
+@keyframes rotateRight {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0;
+  }
+}
+@keyframes rotateLeft {
+  0% {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-360deg);
+    opacity: 0;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    left: -100%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
 }
