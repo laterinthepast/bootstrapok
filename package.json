@@ -1,0 +1,19 @@
+{
+  "name": "bootstrapok",
+  "version": "1.0.0",
+  "description": "",
+  "main": "starter.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laterinthepast/bootstrapok.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laterinthepast/bootstrapok/issues"
+  },
+  "homepage": "https://github.com/laterinthepast/bootstrapok#readme"
+}
